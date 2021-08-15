@@ -36,4 +36,13 @@ window.addEventListener('DOMContentLoaded', () => {
         }
     });
 
+    // Timer
+
+    const deadline = "2021-08-20";
+
+    function getTimeRemeaning(endtime) {
+        const t = Date.parse(endtime) - Date.parse(new Date()),
+            days = Math.floor(t / (1000 * 60 * 60 * 24));
+    }
+
 });
