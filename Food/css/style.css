@@ -737,3 +737,7 @@ a {
         opacity: 1;
     }
 }
+
+.scroll__hidden {
+    overflow: hidden;
+}
