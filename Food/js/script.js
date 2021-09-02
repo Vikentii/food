@@ -124,19 +124,6 @@ window.addEventListener("DOMContentLoaded", () => {
   });
 
   //  Classes
-  // Dymanic menu adding
-  /*<div class="menu__item">
-        <img src="img/tabs/vegy.jpg" alt="vegy">
-        <h3 class="menu__item-subtitle">Меню "Фитнес"</h3>
-        <div class="menu__item-descr">Меню "Фитнес" - это новый подход к приготовлению блюд: больше свежих овощей и фруктов. Продукт активных и здоровых людей. Это абсолютно новый продукт с оптимальной ценой и высоким качеством!</div>
-        <div class="menu__item-divider"></div>
-        <div class="menu__item-price">
-            <div class="menu__item-cost">Цена:</div>
-            <div class="menu__item-total"><span>229</span> грн/день</div>
-        </div>
-    </div>
-    */
-  // .menu__field  -> .container
 
   class AddMenuItem {
     constructor(subtitle, desc, price, img, alt, parentSelector) {
@@ -169,7 +156,7 @@ window.addEventListener("DOMContentLoaded", () => {
             </div>
         `;
 
-        this.parent.append(itemElement);
+      this.parent.append(itemElement);
 
       //document.querySelector('.menu__field').querySelector('.container').append(item);
     }
@@ -179,7 +166,26 @@ window.addEventListener("DOMContentLoaded", () => {
     'Меню "Фитнес" - это новый подход к приготовлению блюд: больше свежих овощей и фруктов. Продукт активных и здоровых людей. Это абсолютно новый продукт с оптимальной ценой и высоким качеством!',
     20,
     "img/tabs/vegy.jpg",
-    'vegy',
-    '.menu .container'
-    ).render();
+    "vegy",
+    ".menu .container"
+  ).render();
+
+  new AddMenuItem(
+      'Меню “Премиум”',
+      'В меню “Премиум” мы используем не только красивый дизайн упаковки, но и качественное исполнение блюд. Красная рыба, морепродукты, фрукты - ресторанное меню без похода в ресторан!',
+      25,
+      'img/tabs/elite.jpg',
+      'elite',
+      '.menu .container'
+  ).render();
+
+  new AddMenuItem(
+      'Меню "Постное"',
+      'Меню “Постное” - это тщательный подбор ингредиентов: полное отсутствие продуктов животного происхождения, молоко из миндаля, овса, кокоса или гречки, правильное количество белков за счет тофу и импортных вегетарианских стейков.',
+      18,
+      'img/tabs/post.jpg',
+      'post',
+      '.menu .container'
+  ).render();
+
 });
