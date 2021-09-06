@@ -126,12 +126,13 @@ window.addEventListener("DOMContentLoaded", () => {
   //  Classes
 
   class AddMenuItem {
-    constructor(subtitle, desc, price, img, alt, parentSelector) {
+    constructor(subtitle, desc, price, img, alt, parentSelector, ...classes) {
       this.subtitle = subtitle;
       this.desc = desc;
       this.price = price;
       this.img = img;
       this.alt = alt;
+      this.classes = classes;
       this.parent = document.querySelector(parentSelector);
       this.transfer = 27; // курс валют...
       this.changeToUAH();
@@ -143,17 +144,22 @@ window.addEventListener("DOMContentLoaded", () => {
 
     render() {
       const itemElement = document.createElement("div");
+      if (this.classes.length === 0) {
+        this.itemElement = 'menu__item';
+        itemElement.classList.add(this.itemElement);
+      } else {
+        this.classes.forEach(className => itemElement.classList.add(className));
+      }
+
       itemElement.innerHTML = `
-            <div class="menu__item">
-                <img src=${this.img} alt=${this.alt}>
-                <h3 class="menu__item-subtitle">${this.subtitle}</h3>
-                <div class="menu__item-descr">${this.desc}</div>
-                <div class="menu__item-divider"></div>
-                <div class="menu__item-price">
-                    <div class="menu__item-cost">Цена:</div>
-                    <div class="menu__item-total"><span>${this.price}</span> грн/день</div>
-                </div>
-            </div>
+              <img src=${this.img} alt=${this.alt}>
+              <h3 class="menu__item-subtitle">${this.subtitle}</h3>
+              <div class="menu__item-descr">${this.desc}</div>
+              <div class="menu__item-divider"></div>
+              <div class="menu__item-price">
+                  <div class="menu__item-cost">Цена:</div>
+                  <div class="menu__item-total"><span>${this.price}</span> грн/день</div>
+              </div>
         `;
 
       this.parent.append(itemElement);
